@@ -1,0 +1,10 @@
+soong_config_module_type {
+    name: "lineage_health_device_config",
+    soong_namespace: "lineage_health",
+    properties: {
+        charging_control_supports_bypass: false,
+        charging_control_charging_path: "/sys/class/power_supply/battery/device/force_charger_suspend",
+        charging_control_charging_enabled: "0",
+        charging_control_charging_disabled: "1",
+    },
+}

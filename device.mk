@@ -70,11 +70,5 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
-# Lineage Health charging control (device-specific overrides)
-PRODUCT_SOONG_CONFIG_BOOL_lineage_health__charging_control_supports_bypass := false
-PRODUCT_SOONG_CONFIG_STRING_lineage_health__charging_control_charging_path := /sys/class/power_supply/battery/device/force_charger_suspend
-PRODUCT_SOONG_CONFIG_STRING_lineage_health__charging_control_charging_enabled := 0
-PRODUCT_SOONG_CONFIG_STRING_lineage_health__charging_control_charging_disabled := 1
-
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/berlin/berlin-vendor.mk)
