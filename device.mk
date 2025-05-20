@@ -15,7 +15,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 400dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
-PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_SHIPPING_API_LEVEL := 34
 
 # Inherit from motorola sm7325-common
 $(call inherit-product, device/motorola/sm7325-common/common.mk)
@@ -69,6 +69,12 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
+# Lineage Health charging control (device-specific override)
+soong_config_set("lineage_health", "charging_control_supports_bypass", "false")
+soong_config_set("lineage_health", "charging_control_charging_path", "/sys/class/power_supply/battery/device/force_charger_suspend")
+soong_config_set("lineage_health", "charging_control_charging_enabled", "0")
+soong_config_set("lineage_health", "charging_control_charging_disabled", "1")
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/berlin/berlin-vendor.mk)
